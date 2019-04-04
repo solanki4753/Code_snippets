@@ -16,15 +16,15 @@ for i in range(len(list1)):
     lis1[name]= df1[list(df1)[1]].loc[df1[list(df1)[0]] == name ].values.astype('str').tolist()   
 
 #directory to dataFrame
-df5=pd.DataFrame(list1)
-df5['first']=1
+df2=pd.DataFrame(list1)
+df2['first']=1
 for key,value in lis1.items():
-    i=list(df5[list(df1)[0]]).index(str(key))
-    df5.loc[i,'first']=','.join(value)
+    i=list(df2[list(df1)[0]]).index(str(key))
+    df2.loc[i,'first']=','.join(value)
    
 #split it
-final=pd.DataFrame(df5['first'].str.split(',').tolist())
-final[list(df1)[0]]=df5[list(df1)[0]]
+final=pd.DataFrame(df2['first'].str.split(',').tolist())
+final[list(df1)[0]]=df2[list(df1)[0]]
 final=final.set_index(list(df1)[0])
 
 print(final)
